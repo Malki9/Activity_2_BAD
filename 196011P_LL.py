@@ -32,7 +32,7 @@ def traverse(self):
 # In[4]:
 
 
-def insert_at_end(self,dataval):
+def insert_at_end(self,dataval)
     new_node = Node(dataval)     
     if self.head is None:     #Check whether the Linkedlist is empty or not
         self.head = new_node
@@ -42,3 +42,43 @@ def insert_at_end(self,dataval):
             n = n.next
         n.next = new_node     #Change the n.next of the last node to new_node
 
+class Stack:
+    def __init__(self):
+        self.items = []
+        
+    def isEmpty(self):
+        return len(self.items) == 0
+    
+    def push(self, item):
+        self.items.append(item)
+        
+    def pop(self):
+        return self.items.pop()
+    
+    def top(self):
+        return self.items[-1]
+    
+    def size(self):
+        return len(self.items)
+    
+ def are_Parantheses_Valid(expr):
+    p_stack = Stack()
+    
+    for para in expr:
+        if para in ["(", "{"]:
+            p_stack.push(para)    
+        if para in [")", "}"]:
+            x = p_stack.pop()
+        
+            
+            if para == '(' and x == ')':
+                    return "Valid"
+                
+            if para == '{' and x == '}':
+                    return "Valid"
+                
+    
+    if not p_stack.isEmpty():
+        return "Invalid"
+    else:
+        return "Valid"
